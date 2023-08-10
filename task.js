@@ -15,7 +15,7 @@ function matchFinder(string1, string2) {
 }
 
 function sortMaker(arr) {
-    if(arr[0] < 0 || arr[1] < 0 || arr.length < 2) {
+    if(arr[0] < 0 || arr[1] < 0) {
         return 'Invalid Input';
     }
     else if(arr[0] === arr[1]) {
@@ -29,17 +29,12 @@ function sortMaker(arr) {
 }
 
 function findAddress(obj) {
-    let properties = ['street', 'house', 'society'];
-    let values = properties.map(property => {
-        if(obj[property] !== undefined) {
-            return obj[property];
-        }
-        else {
-            return '__';
-        }
-    });
-    let results = values.join(',');
-    return results;
+    const street = obj.street || "__";
+    const house = obj.house || "__";
+    const society = obj.society || "__";
+    const array = [street, house, society]
+    let values = array.join(',')
+    return values;
 }
 
 function canPay(changeArray, totalDue) {
